@@ -6,17 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Include JavaScript Libraries -->
-    <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/lib/jquery-3.1.0.min.js"></script>
+    <!-- Include JQuery Mobile -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
 
     <!-- Include Custom Scripts -->
     <script src="js/myscript.js"></script>
-
-    <!-- Include CSS Themes -->
-    <link rel="stylesheet" href="css/themes/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/themes/jquery.mobile.theme-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/themes/jquery.mobile.icons-1.4.5.min.css"/>
 
     <!-- Include CSS Custom Styles -->
     <link rel="stylesheet" href="css/mystyles.css"/>
@@ -27,17 +23,41 @@
     <!-- Landing Page -->
     <section id="home" data-role="page">
         <header id="homeheader" data-role="header" data-position="fixed">
+            <a id="homeadminbtn" href="#admin" data-role="button">Admin</a>
+            <h1>PhoneHub</h1>
+            <a id="homesigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
 
         </header>
         <section id="homenav" data-role="navbar">
-
+            <ul>
+                <li><a href="#category">Shop by Category</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart" class="ui-disabled">Cart</a></li>
+            </ul>
         </section>
-        <section role="main" class="ui-content">
+        <section id="homecontent" role="main" class="ui-content">
 
         </section>
         <footer id="homefooter" data-role="footer">
 
         </footer>
+    </section>
+
+    <!-- Admin page -->
+    <section id="admin" data-role="page">
+        <header id="adminheader" data-role="header" data-position="fixed">
+            <a id="adminhomebtn" href="#home" data-role="button">Home</a>
+            <h1>Admin Area</h1>
+        </header>
+        <section id="adminnav" data-role="navbar">
+
+        </section>
+        <section id="admincontent" role="main" class="ui-content">
+
+        </section>
+        <section id="adminfooter" data-role="footer">
+
+        </section>
     </section>
 
     <!-- Product category page -->
@@ -103,7 +123,7 @@
 
     <!-- Add to cart - Confirmation Pop-up -->
     <section id="confirmation" data-role="page">
-        <header data-role="header" id="confirmationheader">
+        <header id="confirmationheader" data-role="header">
 
         </header>
         <section id="confirmationcontent" role="main" class="ui-content">
@@ -113,5 +133,41 @@
 
         </footer>
     </section>
+
+
+    <!-- Sign in popup -->
+    <section id="signin" data-role="page">
+        <header id="signinheader" data-role="header">
+            <h1>Sign In</h1>
+        </header>
+        <section id="signincontent" role="main" class="ui-content">
+            <form>
+                <input id="uemail" name="uemail" type="email" placeholder="Email"/>
+                <input id="upassword" name="upassord" type="password" placeholder="password"/>
+                <input id="usubmit" type="submit" data-theme="b" value="Sign In"/>
+            </form>
+        </section>
+        <footer id="signinfooter" data-role="footer">
+
+        </footer>
+    </section>
+
+    <!-- Admin Sign In Popup -->
+    <section id="adminsignin" data-role="page">
+        <header id="adminsigninheader" data-role="header">
+            <h1>Admin Sign In</h1>
+        </header>
+        <section id="adminsignincontent" role="main" class="ui-content">
+            <form>
+                <input id="aemail" name="aemail" type="email" placeholder="Email"/>
+                <input id="apassword" name="apassord" type="password" placeholder="password"/>
+                <input id="asubmit" type="submit" data-theme="b" value="Sign In"/>
+            </form>
+        </section>
+        <footer id="adminsigninfooter" data-role="footer">
+
+        </footer>
+    </section>
+
 </body>
 </html>
