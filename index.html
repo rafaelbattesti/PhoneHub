@@ -12,7 +12,7 @@
     <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- Include Custom Scripts -->
-    <script src="lib/myscript.js"></script>
+    <script type="text/javascript" src="lib/myscript.js"></script>
 
     <!-- Include CSS Custom Styles -->
     <link rel="stylesheet" href="css/mystyles.css"/>
@@ -159,7 +159,7 @@
             <h1>Sign In</h1>
         </header>
         <section id="signincontent" role="main" class="ui-content">
-            <form>
+            <form id="signinform">
                 <input id="uemail" name="uemail" type="email" placeholder="Email"/>
                 <input id="upassword" name="upassword" type="password" placeholder="password"/>
                 <input id="usubmit" type="submit" data-theme="b" value="Sign In"/>
@@ -176,7 +176,7 @@
             <h1>Admin Access</h1>
         </header>
         <section id="adminsignincontent" role="main" class="ui-content">
-            <form>
+            <form id="adminsigninform">
                 <input id="aemail" name="aemail" type="email" placeholder="Email"/>
                 <input id="apassword" name="apassword" type="password" placeholder="password"/>
                 <input id="asubmit" type="submit" data-theme="b" value="Sign In"/>
