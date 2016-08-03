@@ -30,7 +30,7 @@
         </header>
         <section id="homenav" data-role="navbar">
             <ul>
-                <li><a href="#category">Shop by Category</a></li>
+                <li><a href="#categories">Shop by Category</a></li>
                 <li><a href="#deals">Deals</a></li>
                 <li><a href="#cart" class="ui-disabled">Cart</a></li>
             </ul>
@@ -61,9 +61,11 @@
     </section>
 
     <!-- Product category page -->
-    <section id="category" data-role="page">
+    <section id="categories" data-role="page">
         <header id="categoryheader" data-role="header" data-position="fixed">
-
+            <a id="categorieshomebtn" href="#home" data-role="button">Home</a>
+            <h1>Categories</h1>
+            <a id="categoriessigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
         </header>
         <section id="categorynav" data-role="navbar">
 
@@ -76,10 +78,27 @@
         </footer>
     </section>
 
+    <!-- Deals page -->
+    <section id="deals" data-role="page">
+        <header id="dealsheader" data-role="header" data-position="fixed">
+            <a id="dealshomebtn" href="#home" data-role="button">Home</a>
+            <h1>Deals</h1>
+            <a id="dealssigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
+        </header>
+        <section id="dealscontent" role="main" class="ui-content">
+
+        </section>
+        <section id="dealsfooter" data-role="footer">
+
+        </section>
+    </section>
+
     <!-- Product Page -->
     <section id="product" data-role="page">
         <header id="productheader" data-role="header" data-position="fixed">
-
+            <a id="producthomebtn" href="#home" data-role="button">Home</a>
+            <h1>Product</h1>
+            <a id="productsigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
         </header>
         <section id="productnav" data-role="navbar">
 
@@ -95,7 +114,9 @@
     <!-- Shopping cart page -->
     <section id="cart" data-role="page">
         <header id="cartheader" data-role="header" data-position="fixed">
-
+            <a id="carthomebtn" href="#home" data-role="button">Home</a>
+            <h1>Cart</h1>
+            <a id="cartsigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
         </header>
         <section id="cartnav" data-role="navbar">
 
