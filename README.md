@@ -10,17 +10,20 @@ For the sake of educational purposes, no scafolding has been used.
 * PhoneHub SPA
 * 0.1
 * [JQuery Mobile](https://jquerymobile.com/)
-* [JQuery Theme Roller](http://themeroller.jquerymobile.com/)
 * [LinkedIn Profile](https://ca.linkedin.com/in/rafaelbattesti)
 
+### Important Notes ###
+
+* This project uses images and JSON files from the [angular-phonecat](https://github.com/angular/angular-phonecat) open source project.
+* The purpose of using those resources is to focus on the development of the SPA itself instead of the content of the application.
+
 ### What technology does it use? ###
-* Front-end: AJAX, JQuery, JQuery Mobile and JQuery Theme Roller CSS.
-* Back-end: PHP and MySQL
+* Front-end: AJAX, JQuery and JQuery Mobile.
+* Back-end: Still not implemented
 
 ### How do I get set up? ###
 
-* This project requires a LAMP Server to host the files.
-* Clone this repo in document root (htdocs) of your apache webserver to make them available through port 80 of your localhost or webserver.
+* This is a front-end project, thus requiring a simple http server to serve html and JSON files.
 * All the dependencies have been added to version control (not a good practice, I know!) but for the sake of having a complete source of knowledge in the remote repository.
 * No tests have been deployed for this application (so far...)
 
