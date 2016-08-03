@@ -6,7 +6,8 @@
         "name": "Motorola XOOM\u2122 with Wi-Fi", 
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the world's first tablet powered by Android 3.0 (Honeycomb).",
         "deal": true,
-        "qoh":20
+        "qoh":20,
+        "category": "tablet"
     }, 
     {
         "age": 1, 
@@ -15,7 +16,8 @@
         "name": "MOTOROLA XOOM\u2122", 
         "snippet": "The Next, Next Generation\n\nExperience the future with MOTOROLA XOOM, the world's first tablet powered by Android 3.0 (Honeycomb).",
         "deal": true,
-        "qoh":35
+        "qoh":35,
+        "category": "tablet",
     }, 
     {
         "age": 2, 
@@ -25,7 +27,8 @@
         "name": "MOTOROLA ATRIX\u2122 4G", 
         "snippet": "MOTOROLA ATRIX 4G the world's most powerful smartphone.",
         "deal": true,
-        "qoh":10
+        "qoh":10,
+        "category": "phone"
     }, 
     {
         "age": 3, 
@@ -34,7 +37,8 @@
         "name": "Dell Streak 7", 
         "snippet": "Introducing Dell\u2122 Streak 7. Share photos, videos and movies together. It\u2019s small enough to carry around, big enough to gather around.",
         "deal": true,
-        "qoh":8
+        "qoh":8,
+        "category": "tablet"
     }, 
     {
         "age": 4, 
@@ -44,7 +48,8 @@
         "name": "Samsung Gem\u2122", 
         "snippet": "The Samsung Gem\u2122 brings you everything that you would expect and more from a touch display smart phone \u2013 more apps, more features and a more affordable price.",
         "deal": false,
-        "qoh":0
+        "qoh":0,
+        "category": "phone"
     }, 
     {
         "age": 5, 
@@ -54,7 +59,8 @@
         "name": "Dell Venue", 
         "snippet": "The Dell Venue; Your Personal Express Lane to Everything",
         "deal": true,
-        "qoh":0
+        "qoh":0,
+        "category": "phone"
     }, 
     {
         "age": 6, 
@@ -64,7 +70,8 @@
         "name": "Nexus S", 
         "snippet": "Fast just got faster with Nexus S. A pure Google experience, Nexus S is the first phone to run Gingerbread (Android 2.3), the fastest version of Android yet.",
         "deal": true,
-        "qoh":3
+        "qoh":3,
+        "category": "phone"
     }, 
     {
         "age": 7, 
@@ -74,7 +81,8 @@
         "name": "LG Axis", 
         "snippet": "Android Powered, Google Maps Navigation, 5 Customizable Home Screens",
         "deal": false,
-        "qoh":21
+        "qoh":21,
+        "category": "phone"
     }, 
     {
         "age": 8, 
@@ -83,7 +91,8 @@
         "name": "Samsung Galaxy Tab\u2122", 
         "snippet": "Feel Free to Tab\u2122. The Samsung Galaxy Tab\u2122 brings you an ultra-mobile entertainment experience through its 7\u201d display, high-power processor and Adobe\u00ae Flash\u00ae Player compatibility.",
         "deal": true,
-        "qoh":17
+        "qoh":17,
+        "category": "tablet"
     }, 
     {
         "age": 9, 
@@ -93,7 +102,8 @@
         "name": "Samsung Showcase\u2122 a Galaxy S\u2122 phone", 
         "snippet": "The Samsung Showcase\u2122 delivers a cinema quality experience like you\u2019ve never seen before. Its innovative 4\u201d touch display technology provides rich picture brilliance, even outdoors",
         "deal": true,
-        "qoh":10
+        "qoh":10,
+        "category": "phone"
     }, 
     {
         "age": 10, 
@@ -103,7 +113,8 @@
         "name": "DROID\u2122 2 Global by Motorola", 
         "snippet": "The first smartphone with a 1.2 GHz processor and global capabilities.",
         "deal": false,
-        "qoh":0
+        "qoh":0,
+        "category": "phone"
     }, 
     {
         "age": 11, 
@@ -113,7 +124,8 @@
         "name": "DROID\u2122 Pro by Motorola", 
         "snippet": "The next generation of DOES.",
         "deal": true,
-        "qoh":12
+        "qoh":12,
+        "category": "phone"
     }, 
     {
         "age": 12, 
@@ -123,7 +135,8 @@
         "name": "MOTOROLA BRAVO\u2122 with MOTOBLUR\u2122", 
         "snippet": "An experience to cheer about.",
         "deal": true,
-        "qoh":40
+        "qoh":40,
+        "category": "phones"
     }, 
     {
         "age": 13, 
@@ -133,7 +146,8 @@
         "name": "Motorola DEFY\u2122 with MOTOBLUR\u2122", 
         "snippet": "Are you ready for everything life throws your way?",
         "deal": false,
-        "qoh":4
+        "qoh":4,
+        "category": "phone"
     }, 
     {
         "age": 14, 
@@ -143,7 +157,8 @@
         "name": "T-Mobile myTouch 4G", 
         "snippet": "The T-Mobile myTouch 4G is a premium smartphone designed to deliver blazing fast 4G speeds so that you can video chat from practically anywhere, with or without Wi-Fi.",
         "deal": false,
-        "qoh":5
+        "qoh":5,
+        "category": "phone"
     }, 
     {
         "age": 15, 
@@ -153,7 +168,8 @@
         "name": "Samsung Mesmerize\u2122 a Galaxy S\u2122 phone", 
         "snippet": "The Samsung Mesmerize\u2122 delivers a cinema quality experience like you\u2019ve never seen before. Its innovative 4\u201d touch display technology provides rich picture brilliance,even outdoors",
         "deal": false,
-        "qoh":63
+        "qoh":63,
+        "category": "phone"
     }, 
     {
         "age": 16, 
@@ -163,7 +179,8 @@
         "name": "SANYO ZIO", 
         "snippet": "The Sanyo Zio by Kyocera is an Android smartphone with a combination of ultra-sleek styling, strong performance and unprecedented value.",
         "deal": false,
-        "qoh":16
+        "qoh":16,
+        "category": "phone"
     }, 
     {
         "age": 17, 
@@ -172,7 +189,8 @@
         "name": "Samsung Transform\u2122", 
         "snippet": "The Samsung Transform\u2122 brings you a fun way to customize your Android powered touch screen phone to just the way you like it through your favorite themed \u201cSprint ID Service Pack\u201d.",
         "deal": false,
-        "qoh":23
+        "qoh":23,
+        "category": "phone"
     }, 
     {
         "age": 18, 
@@ -181,7 +199,8 @@
         "name": "T-Mobile G2", 
         "snippet": "The T-Mobile G2 with Google is the first smartphone built for 4G speeds on T-Mobile's new network. Get the information you need, faster than you ever thought possible.",
         "deal": false,
-        "qoh":43
+        "qoh":43,
+        "category": "phone"
     }, 
     {
         "age": 19, 
@@ -190,6 +209,7 @@
         "name": "Motorola CHARM\u2122 with MOTOBLUR\u2122", 
         "snippet": "Motorola CHARM fits easily in your pocket or palm.  Includes MOTOBLUR service.",
         "deal": true,
-        "qoh":23
+        "qoh":23,
+        "category": "phone"
     }
 ]

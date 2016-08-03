@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Include JQuery Mobile -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-    <script src="js/lib/jquery.mobile-1.2.1.min.js"></script>
-    <script src="js/lib/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.4.5.min.css" />
+    <script type="text/javascript" src="lib/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- Include Custom Scripts -->
-    <script src="js/myscript.js"></script>
+    <script src="lib/myscript.js"></script>
 
     <!-- Include CSS Custom Styles -->
     <link rel="stylesheet" href="css/mystyles.css"/>
@@ -23,13 +23,14 @@
     <!-- Landing Page -->
     <section id="home" data-role="page">
         <header id="homeheader" data-role="header" data-position="fixed">
-            <a id="homeadminbtn" href="#admin" data-role="button">Admin</a>
+            <a id="homeadminbtn" href="#adminsignin" data-role="button" data-rel="dialog">Admin</a>
             <h1>PhoneHub</h1>
             <a id="homesigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
 
         </header>
         <section id="homenav" data-role="navbar">
             <ul>
+                <li><a href="#categories">Categories</a></li>
                 <li><a href="#deals">Deals</a></li>
                 <li><a href="#cart" class="ui-disabled">Cart</a></li>
             </ul>
@@ -70,6 +71,21 @@
 
         </section>
         <section id="dealsfooter" data-role="footer">
+
+        </section>
+    </section>
+
+    <!-- Categories page -->
+    <section id="categories" data-role="page">
+        <header id="categoriesheader" data-role="header" data-position="fixed">
+            <a id="categorieshomebtn" href="#home" data-role="button">Home</a>
+            <h1>Categories</h1>
+            <a id="categoriessigninbtn" href="#signin" data-role="button" data-rel="dialog">Sign In</a>
+        </header>
+        <section id="categoriescontent" role="main" class="ui-content">
+
+        </section>
+        <section id="categoriesfooter" data-role="footer">
 
         </section>
     </section>
@@ -145,7 +161,7 @@
         <section id="signincontent" role="main" class="ui-content">
             <form>
                 <input id="uemail" name="uemail" type="email" placeholder="Email"/>
-                <input id="upassword" name="upassord" type="password" placeholder="password"/>
+                <input id="upassword" name="upassword" type="password" placeholder="password"/>
                 <input id="usubmit" type="submit" data-theme="b" value="Sign In"/>
             </form>
         </section>
@@ -157,12 +173,12 @@
     <!-- Admin Sign In Popup -->
     <section id="adminsignin" data-role="page">
         <header id="adminsigninheader" data-role="header">
-            <h1>Admin Sign In</h1>
+            <h1>Admin Access</h1>
         </header>
         <section id="adminsignincontent" role="main" class="ui-content">
             <form>
                 <input id="aemail" name="aemail" type="email" placeholder="Email"/>
-                <input id="apassword" name="apassord" type="password" placeholder="password"/>
+                <input id="apassword" name="apassword" type="password" placeholder="password"/>
                 <input id="asubmit" type="submit" data-theme="b" value="Sign In"/>
             </form>
         </section>
