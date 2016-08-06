@@ -14,10 +14,8 @@
  * @param $message
  */
 function logger($path, $status, $message) {
-    $file = fopen($path, "w") or die ("Error: open log file");
-    $logMsg = "[" . timestamp() . "] : " . $status . " : " . $message;
-    fwrite($file, $logMsg);
-    fclose($file);
+    $logMsg = "[" . timestamp() . "] : " . $status . " : " . $message . "\n";
+    file_put_contents($path, $logMsg, FILE_APPEND | LOCK_EX);
 }
 
 function timestamp() {
