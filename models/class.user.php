@@ -24,6 +24,16 @@ class user {
     private $password;
 
     /**
+     * @var
+     */
+    private $isAdmin;
+
+    /**
+     * @var
+     */
+    private $isLoggedIn;
+
+    /**
      * @param $e string
      * @param $p string
      */
@@ -44,6 +54,20 @@ class user {
      */
     public function getPassword() {
         return $this->password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsLoggedIn() {
+        return $this->isLoggedIn;
+    }
+
+    /**
+     * Set isLoggedIn to true
+     */
+    public function setIsLoggedIn() {
+        $this->isLoggedIn = true;
     }
 
     /**

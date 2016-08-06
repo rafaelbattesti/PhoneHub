@@ -26,12 +26,12 @@ class userdatabase extends database {
     public function getUserByEmail($email, $json) {
         $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
         $result = mysqli_query($this->conn, $sql);
-        $row = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result);
 
         if ($json) {
-            return json_encode($row);
+            return json_encode($user);
         } else {
-            return $row;
+            return $user;
         }
 
     }
