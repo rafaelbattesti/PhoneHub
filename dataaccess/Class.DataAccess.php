@@ -2,7 +2,7 @@
 
 /**
  * Application : phonehub
- * File        : class.database.php
+ * File        : Class.DataAccess.php
  * Author      : Rafael Battesti
  * Since       : 2016-08-05
  * Version     : 0.1
@@ -12,13 +12,13 @@
  * Require the configuration file
  * Sets DB_SERVER, DB_NAME, DB_USERNAME, DB_PASSWORD
  */
-require_once(__DIR__ . "/../utils/appconfig.php");
-require_once(__DIR__ . "/../utils/api.php");
+require_once(__DIR__ . "/../config/appconfig.php");
+require_once(__DIR__ . "/../service/Class.API.php");
 
 /**
- * Class database (Base class for all other data access models)
+ * Class database (Base class for all other dataaccess access service)
  */
-class database {
+class DataAccess {
 
     /**
      * @var mysqli object
@@ -35,20 +35,17 @@ class database {
     /**
      * Connect
      */
-    protected function connect() {
-
+    private function connect() {
         $this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-
         if($this->conn->connect_errno) {
-            throw new Exception("Connect to DB");
+            throw new Exception(DB_ERROR);
         }
     }
 
     /**
      * Disconnect
      */
-    protected function disconnect() {
-
+    public function disconnect() {
         if(isset($this->conn)) {
             mysqli_close($this->conn);
             unset($this->conn);

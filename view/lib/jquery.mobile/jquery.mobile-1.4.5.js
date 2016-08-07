@@ -324,7 +324,7 @@ $.ui.plugin = {
 
 	// Subtract the height of external toolbars from the page height, if the page does not have
 	// internal toolbars of the same type. We take care to use the widget options if we find a
-	// widget instance and the element's data-attributes otherwise.
+	// widget instance and the element's dataaccess-attributes otherwise.
 	var compensateToolbars = function( page, desiredHeight ) {
 		var pageParent = page.parent(),
 			toolbarsAffectingHeight = [],
@@ -338,8 +338,8 @@ $.ui.plugin = {
 				var theElement = $( this ),
 					widgetOptions = $.mobile.toolbar && theElement.data( "mobile-toolbar" ) ?
 						theElement.toolbar( "option" ) : {
-							position: theElement.attr( "data-" + $.mobile.ns + "position" ),
-							updatePagePadding: ( theElement.attr( "data-" + $.mobile.ns +
+							position: theElement.attr( "dataaccess-" + $.mobile.ns + "position" ),
+							updatePagePadding: ( theElement.attr( "dataaccess-" + $.mobile.ns +
 								"update-page-padding" ) !== false )
 						};
 
@@ -471,7 +471,7 @@ $.ui.plugin = {
 				e = elements[ i ];
 
 				while ( e ) {
-					c = e.getAttribute ? e.getAttribute( "data-" + $.mobile.ns + attr ) : "";
+					c = e.getAttribute ? e.getAttribute( "dataaccess-" + $.mobile.ns + attr ) : "";
 
 					if ( c === "false" ) {
 						excluded = true;
@@ -716,7 +716,7 @@ $.ui.plugin = {
 		pushStateEnabled: true,
 
 		// allows users to opt in to ignoring content by marking a parent element as
-		// data-ignored
+		// dataaccess-ignored
 		ignoreContentEnabled: false,
 
 		buttonMarkup: {
@@ -1269,7 +1269,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 	$.extend( $.mobile, {
 
-		// Namespace used framework-wide for data-attrs. Default is no namespace
+		// Namespace used framework-wide for dataaccess-attrs. Default is no namespace
 
 		ns: "",
 
@@ -1281,11 +1281,11 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 			element = element.jquery ? element[0] : element;
 
 			if ( element && element.getAttribute ) {
-				data = element.getAttribute( "data-" + $.mobile.ns + key );
+				data = element.getAttribute( "dataaccess-" + $.mobile.ns + key );
 			}
 
-			// Copied from core's src/data.lib:dataAttr()
-			// Convert from a string to a proper data type
+			// Copied from core's src/dataaccess.lib:dataAttr()
+			// Convert from a string to a proper dataaccess type
 			try {
 				data = data === "true" ? true :
 					data === "false" ? false :
@@ -1302,7 +1302,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 		// Expose our cache for testing purposes.
 		nsNormalizeDict: nsNormalizeDict,
 
-		// Take a data attribute property, prepend the namespace
+		// Take a dataaccess attribute property, prepend the namespace
 		// and then camel case the attribute string. Add the result
 		// to our nsNormalizeDict so we don't have to do this again.
 		nsNormalize: function( prop ) {
@@ -1310,7 +1310,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 				( nsNormalizeDict[ prop ] = $.camelCase( $.mobile.ns + prop ) );
 		},
 
-		// Find the closest javascript page element to gather settings data jsperf test
+		// Find the closest javascript page element to gather settings dataaccess jsperf test
 		// http://jsperf.com/single-complex-selector-vs-many-complex-selectors/edit
 		// possibly naive, but it shows that the parsing overhead for *just* the page selector vs
 		// the page and dialog selector is negligable. This could probably be speed up by
@@ -1323,8 +1323,8 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 	});
 
-	// Mobile version of data and removeData and hasData methods
-	// ensures all data is set and retrieved using jQuery Mobile's data namespace
+	// Mobile version of dataaccess and removeData and hasData methods
+	// ensures all dataaccess is set and retrieved using jQuery Mobile's dataaccess namespace
 	$.fn.jqmData = function( prop, value ) {
 		var result;
 		if ( typeof prop !== "undefined" ) {
@@ -1361,7 +1361,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 	$.find = function( selector, context, ret, extra ) {
 		if ( selector.indexOf( ":jqmData" ) > -1 ) {
-			selector = selector.replace( jqmDataRE, "[data-" + ( $.mobile.ns || "" ) + "$1]" );
+			selector = selector.replace( jqmDataRE, "[dataaccess-" + ( $.mobile.ns || "" ) + "$1]" );
 		}
 
 		return oldFind.call( this, selector, context, ret, extra );
@@ -1410,7 +1410,7 @@ $.mobile.widget = $.Widget;
 	var loaderClass = "ui-loader", $html = $( "html" );
 
 	$.widget( "mobile.loader", {
-		// NOTE if the global utils settings are defined they will override these
+		// NOTE if the global config settings are defined they will override these
 		//      options
 		options: {
 			// the theme for the loading message
@@ -2301,7 +2301,7 @@ if ( !$.support.boxShadow ) {
 			}, 0);
 		},
 
-		hashchange: function( event /*, data */ ) {
+		hashchange: function( event /*, dataaccess */ ) {
 			var newEvent = new $.Event( "navigate" ),
 				beforeNavigate = new $.Event( "beforenavigate" );
 
@@ -2331,7 +2331,7 @@ if ( !$.support.boxShadow ) {
 		// TODO We really only want to set this up once
 		//      but I'm not clear if there's a beter way to achieve
 		//      this with the jQuery special event structure
-		setup: function( /* data, namespaces */ ) {
+		setup: function( /* dataaccess, namespaces */ ) {
 			if ( self.bound ) {
 				return;
 			}
@@ -2755,7 +2755,7 @@ if ( !$.support.boxShadow ) {
 			// Some embedded browsers, like the web view in Phone Gap, allow
 			// cross-domain XHR requests if the document doing the request was loaded
 			// via the file:// protocol. This is usually to allow the application to
-			// "phone home" and fetch app specific data. We normally let the browser
+			// "phone home" and fetch app specific dataaccess. We normally let the browser
 			// handle external/cross-domain urls, but if the allowCrossDomainPages
 			// option is true, we will allow cross-domain http/https requests to go
 			// through our page loading logic.
@@ -2826,7 +2826,7 @@ if ( !$.support.boxShadow ) {
 				this.clearForward();
 			}
 
-			// if the hash is included in the data make sure the shape
+			// if the hash is included in the dataaccess make sure the shape
 			// is consistent for comparison
 			if ( data.hash && data.hash.indexOf( "#" ) === -1) {
 				data.hash = "#" + data.hash;
@@ -2935,7 +2935,7 @@ if ( !$.support.boxShadow ) {
 			href = path.squash( url );
 
 			// make sure to provide this information when it isn't explicitly set in the
-			// data object that was passed to the squash method
+			// dataaccess object that was passed to the squash method
 			state = $.extend({
 				hash: hash,
 				url: href
@@ -3128,9 +3128,9 @@ if ( !$.support.boxShadow ) {
 				url: (event.originalEvent.state || {}).url || hash,
 
 				// When the url is either forward or backward in history include the entry
-				// as data on the event object for merging as data in the navigate event
+				// as dataaccess on the event object for merging as dataaccess in the navigate event
 				present: function( historyEntry, direction ) {
-					// make sure to create a new object to pass down as the navigate event data
+					// make sure to create a new object to pass down as the navigate event dataaccess
 					event.historyState = $.extend({}, historyEntry);
 					event.historyState.direction = direction;
 				}
@@ -3138,7 +3138,7 @@ if ( !$.support.boxShadow ) {
 		},
 
 		// NOTE must bind before `navigate` special event hashchange binding otherwise the
-		//      navigation data won't be attached to the hashchange event in time for those
+		//      navigation dataaccess won't be attached to the hashchange event in time for those
 		//      bindings to attach it to the `navigate` special event
 		// TODO add a check here that `hashchange.navigate` is bound already otherwise it's
 		//      broken (exception?)
@@ -3169,9 +3169,9 @@ if ( !$.support.boxShadow ) {
 				url: hash,
 
 				// When the url is either forward or backward in history include the entry
-				// as data on the event object for merging as data in the navigate event
+				// as dataaccess on the event object for merging as dataaccess in the navigate event
 				present: function( historyEntry, direction ) {
-					// make sure to create a new object to pass down as the navigate event data
+					// make sure to create a new object to pass down as the navigate event dataaccess
 					event.hashchangeState = $.extend({}, historyEntry);
 					event.hashchangeState.direction = direction;
 				},
@@ -3640,9 +3640,9 @@ function getSpecialEventObject( eventType ) {
 	var realType = eventType.substr( 1 );
 
 	return {
-		setup: function(/* data, namespace */) {
+		setup: function(/* dataaccess, namespace */) {
 			// If this is the first virtual mouse binding for this element,
-			// add a bindings object to its data.
+			// add a bindings object to its dataaccess.
 
 			if ( !hasVirtualBindings( this ) ) {
 				$.data( this, dataPropertyName, {} );
@@ -3695,7 +3695,7 @@ function getSpecialEventObject( eventType ) {
 			}
 		},
 
-		teardown: function(/* data, namespace */) {
+		teardown: function(/* dataaccess, namespace */) {
 			// If this is the last virtual binding for this eventType,
 			// remove its global handler from the document.
 
@@ -3725,7 +3725,7 @@ function getSpecialEventObject( eventType ) {
 			// teardown may be called when an element was
 			// removed from the DOM. If this is the case,
 			// jQuery core may have already stripped the element
-			// of any data bindings so we need to check it before
+			// of any dataaccess bindings so we need to check it before
 			// using it.
 			if ( bindings ) {
 				bindings[ eventType ] = false;
@@ -3736,7 +3736,7 @@ function getSpecialEventObject( eventType ) {
 			$this.unbind( realType, dummyMouseHandler );
 
 			// If this is the last virtual mouse binding on the
-			// element, remove the binding data from the element.
+			// element, remove the binding dataaccess from the element.
 
 			if ( !hasVirtualBindings( this ) ) {
 				$this.removeData( dataPropertyName );
@@ -4037,7 +4037,7 @@ if ( eventCaptureSupported ) {
 				$this = $( thisObject ),
 				context = {};
 
-			// Retrieve the events data for this element and add the swipe context
+			// Retrieve the events dataaccess for this element and add the swipe context
 			events = $.data( this, "mobile-events" );
 			if ( !events ) {
 				events = { length: 0 };
@@ -4460,11 +4460,11 @@ $.widget( "mobile.page", {
 	},
 
 	_enhance: function () {
-		var attrPrefix = "data-" + $.mobile.ns,
+		var attrPrefix = "dataaccess-" + $.mobile.ns,
 			self = this;
 
 		if ( this.options.role ) {
-			this.element.attr( "data-" + $.mobile.ns + "role", this.options.role );
+			this.element.attr( "dataaccess-" + $.mobile.ns + "role", this.options.role );
 		}
 
 		this.element
@@ -4516,7 +4516,7 @@ $.widget( "mobile.page", {
 		}
 
 		if ( o.contentTheme !== undefined ) {
-			this.element.find( "[data-" + $.mobile.ns + "='content']" ).removeClass( "ui-body-" + this.options.contentTheme )
+			this.element.find( "[dataaccess-" + $.mobile.ns + "='content']" ).removeClass( "ui-body-" + this.options.contentTheme )
 				.addClass( "ui-body-" + o.contentTheme );
 		}
 	},
@@ -4785,7 +4785,7 @@ $.widget( "mobile.page", {
 			// If current active page is not a dialog skip the dialog and continue
 			// in the same direction
 			// Note: The dialog widget is deprecated as of 1.4.0 and will be removed in 1.5.0.
-			// Thus, as of 1.5.0 activeContent.data( "mobile-dialog" ) will always evaluate to
+			// Thus, as of 1.5.0 activeContent.dataaccess( "mobile-dialog" ) will always evaluate to
 			// falsy, so the second condition in the if-statement below can be removed altogether.
 			if ( activeContent && !activeContent.data( "mobile-dialog" ) ) {
 				// determine if we're heading forward or backward and continue
@@ -4897,16 +4897,16 @@ $.widget( "mobile.page", {
 			// NOTE do _not_ use the :jqmData pseudo selector because parenthesis
 			//      are a valid url char and it breaks on the first occurence
 			page = this.element
-				.children( "[data-" + this._getNs() +
+				.children( "[dataaccess-" + this._getNs() +
 					"url='" + $.mobile.path.hashToSelector( dataUrl ) + "']" );
 
 			// If we failed to find the page, check to see if the url is a
 			// reference to an embedded page. If so, it may have been dynamically
 			// injected by a developer, in which case it would be lacking a
-			// data-url attribute and in need of enhancement.
+			// dataaccess-url attribute and in need of enhancement.
 			if ( page.length === 0 && dataUrl && !$.mobile.path.isPath( dataUrl ) ) {
 				page = this.element.children( $.mobile.path.hashToSelector("#" + dataUrl) )
-					.attr( "data-" + this._getNs() + "url", dataUrl )
+					.attr( "dataaccess-" + this._getNs() + "url", dataUrl )
 					.jqmData( "url", dataUrl );
 			}
 
@@ -4975,7 +4975,7 @@ $.widget( "mobile.page", {
 
 			//if page elem couldn't be found, create one and insert the body element's contents
 			if ( !page.length ) {
-				page = $( "<div data-" + this._getNs() + "role='page'>" +
+				page = $( "<div dataaccess-" + this._getNs() + "role='page'>" +
 					( html.split( /<\/?body[^>]*>/gmi )[1] || "" ) +
 					"</div>" );
 			}
@@ -4983,8 +4983,8 @@ $.widget( "mobile.page", {
 			// TODO tagging a page with external to make sure that embedded pages aren't
 			// removed by the various page handling code is bad. Having page handling code
 			// in many places is bad. Solutions post 1.0
-			page.attr( "data-" + this._getNs() + "url", this._createDataUrl( fileUrl ) )
-				.attr( "data-" + this._getNs() + "external-page", true );
+			page.attr( "dataaccess-" + this._getNs() + "url", this._createDataUrl( fileUrl ) )
+				.attr( "dataaccess-" + this._getNs() + "external-page", true );
 
 			return page;
 		},
@@ -5035,7 +5035,7 @@ $.widget( "mobile.page", {
 			var fileUrl = this._createFileUrl( absUrl );
 
 			return $.proxy(function( html, textStatus, xhr ) {
-				//pre-parse html to check for a data-url,
+				//pre-parse html to check for a dataaccess-url,
 				//use it as the new fileUrl, base path, etc
 				var content,
 
@@ -5044,7 +5044,7 @@ $.widget( "mobile.page", {
 
 					dataUrlRegex = new RegExp( "\\bdata-" + this._getNs() + "url=[\"']?([^\"'>]*)[\"']?" );
 
-				// data-url must be provided for the base tag so resource requests
+				// dataaccess-url must be provided for the base tag so resource requests
 				// can be directed to the correct url. loading into a temprorary
 				// element makes these requests immediately
 				if ( pageElemRegex.test( html ) &&
@@ -5053,7 +5053,7 @@ $.widget( "mobile.page", {
 					RegExp.$1 ) {
 					fileUrl = $.mobile.path.getFilePath( $("<div>" + RegExp.$1 + "</div>").text() );
 
-					// We specify that, if a data-url attribute is given on the page div, its value
+					// We specify that, if a dataaccess-url attribute is given on the page div, its value
 					// must be given non-URL-encoded. However, in this part of the code, fileUrl is
 					// assumed to be URL-encoded, so we URL-encode the retrieved value here
 					fileUrl = this.window[ 0 ].encodeURIComponent( fileUrl );
@@ -5112,7 +5112,7 @@ $.widget( "mobile.page", {
 
 			reload: false,
 
-			// By default we rely on the role defined by the @data-role attribute.
+			// By default we rely on the role defined by the @dataaccess-role attribute.
 			role: undefined,
 
 			showLoadMsg: false,
@@ -5146,8 +5146,8 @@ $.widget( "mobile.page", {
 				absUrl = $.mobile.path.makeUrlAbsolute( url, this._findBaseWithDefault() ),
 				fileUrl, dataUrl, pblEvent, triggerData;
 
-			// If the caller provided data, and we're using "get" request,
-			// append the data to the URL.
+			// If the caller provided dataaccess, and we're using "get" request,
+			// append the dataaccess to the URL.
 			if ( settings.data && settings.type === "get" ) {
 				absUrl = $.mobile.path.addSearchParams( absUrl, settings.data );
 				settings.data = undefined;
@@ -5162,7 +5162,7 @@ $.widget( "mobile.page", {
 			// In otherwords the real URL of the content to be loaded.
 			fileUrl = this._createFileUrl( absUrl );
 
-			// The version of the Url actually stored in the data-url attribute of
+			// The version of the Url actually stored in the dataaccess-url attribute of
 			// the content. For embedded content, it is just the id of the page. For
 			// content within the same domain as the document base, it is the site
 			// relative path. For cross-domain content (Phone Gap only) the entire
@@ -5447,7 +5447,7 @@ $.widget( "mobile.page", {
 			}
 
 			// We allow "pagebeforechange" observers to modify the to in
-			// the trigger data to allow for redirects. Make sure our to is
+			// the trigger dataaccess to allow for redirects. Make sure our to is
 			// updated. We also need to re-evaluate whether it is a string,
 			// because an object can also be replaced by a string
 			to = triggerData.toPage;
@@ -5628,7 +5628,7 @@ $.widget( "mobile.page", {
 				}
 			}
 
-			// if title element wasn't found, try the page div data attr too
+			// if title element wasn't found, try the page div dataaccess attr too
 			// If this is a deep-link or a reload ( active === undefined ) then just
 			// use pageTitle
 			newPageTitle = ( !active ) ? pageTitle : toPage.jqmData( "title" ) ||
@@ -5753,7 +5753,7 @@ $.widget( "mobile.page", {
 
 		documentUrl = $.mobile.path.documentUrl,
 
-		// used to track last vclicked element to make sure its value is added to form data
+		// used to track last vclicked element to make sure its value is added to form dataaccess
 		$lastVClicked = null;
 
 	/* Event Bindings - hashchange, submit, and click */
@@ -5849,7 +5849,7 @@ $.widget( "mobile.page", {
 		reverse: false,
 		changeHash: true,
 		fromHashChange: false,
-		role: undefined, // By default we rely on the role defined by the @data-role attribute.
+		role: undefined, // By default we rely on the role defined by the @dataaccess-role attribute.
 		duplicateCachedPage: undefined,
 		pageContainer: undefined,
 		showLoadMsg: true, //loading message shows by default when pages are being fetched during changePage
@@ -5881,11 +5881,11 @@ $.widget( "mobile.page", {
 			// to the URL for the source document of the page containing
 			// the form.
 			if ( !url ) {
-				// Get the @data-url for the page containing the form.
+				// Get the @dataaccess-url for the page containing the form.
 				url = $.mobile.getClosestBaseUrl( $form );
 
 				// NOTE: If the method is "get", we need to strip off the query string
-				// because it will get replaced with the new form data. See issue #5710.
+				// because it will get replaced with the new form dataaccess. See issue #5710.
 				if ( method === "get" ) {
 					url = $.mobile.path.parseUrl( url ).hrefNoSearch;
 				}
@@ -5914,7 +5914,7 @@ $.widget( "mobile.page", {
 						// Make sure the last clicked element is included in the form
 						$.each( formData, function( key, value ) {
 							if ( value.name === vclickedName ) {
-								// Unset vclickedName - we've found it in the serialized data already
+								// Unset vclickedName - we've found it in the serialized dataaccess already
 								vclickedName = "";
 								return false;
 							}
@@ -5973,7 +5973,7 @@ $.widget( "mobile.page", {
 					return;
 				}
 				// We will apply the active state to this button widget - the parent
-				// of the input that was clicked will have the associated data
+				// of the input that was clicked will have the associated dataaccess
 				if ( target.parentNode ) {
 					target = target.parentNode;
 				}
@@ -5990,13 +5990,13 @@ $.widget( "mobile.page", {
 				}
 			}
 
-			// Avoid calling .closest by using the data set during .buttonMarkup()
-			// List items have the button data in the parent of the element clicked
+			// Avoid calling .closest by using the dataaccess set during .buttonMarkup()
+			// List items have the button dataaccess in the parent of the element clicked
 			if ( !!~target.className.indexOf( "ui-link-inherit" ) ) {
 				if ( target.parentNode ) {
 					btnEls = $.data( target.parentNode, "buttonElements" );
 				}
-			// Otherwise, look for the data on the target itself
+			// Otherwise, look for the dataaccess on the target itself
 			} else {
 				btnEls = $.data( target, "buttonElements" );
 			}
@@ -6056,7 +6056,7 @@ $.widget( "mobile.page", {
 				return;
 			}
 
-			//if there's a data-rel=back attr, go back in history
+			//if there's a dataaccess-rel=back attr, go back in history
 			if ( $link.is( ":jqmData(rel='back')" ) ) {
 				$.mobile.back();
 				return false;
@@ -6106,7 +6106,7 @@ $.widget( "mobile.page", {
 			// Some embedded browsers, like the web view in Phone Gap, allow cross-domain XHR
 			// requests if the document doing the request was loaded via the file:// protocol.
 			// This is usually to allow the application to "phone home" and fetch app specific
-			// data. We normally let the browser handle external/cross-domain urls, but if the
+			// dataaccess. We normally let the browser handle external/cross-domain urls, but if the
 			// allowCrossDomainPages option is true, we will allow cross-domain http/https
 			// requests to go through our page loading logic.
 
@@ -6127,14 +6127,14 @@ $.widget( "mobile.page", {
 						// deprecated - remove by 1.0
 						$link.jqmData( "back" );
 
-			//this may need to be more specific as we use data-rel more
-			role = $link.attr( "data-" + $.mobile.ns + "rel" ) || undefined;
+			//this may need to be more specific as we use dataaccess-rel more
+			role = $link.attr( "dataaccess-" + $.mobile.ns + "rel" ) || undefined;
 
 			$.mobile.changePage( href, { transition: transition, reverse: reverse, role: role, link: $link } );
 			event.preventDefault();
 		});
 
-		//prefetch pages when anchors with data-prefetch are encountered
+		//prefetch pages when anchors with dataaccess-prefetch are encountered
 		$.mobile.document.delegate( ".ui-page", "pageshow.prefetch", function() {
 			var urls = [];
 			$( this ).find( "a:jqmData(prefetch)" ).each(function() {
@@ -6144,7 +6144,7 @@ $.widget( "mobile.page", {
 				if ( url && $.inArray( url, urls ) === -1 ) {
 					urls.push( url );
 
-					$.mobile.loadPage( url, { role: $link.attr( "data-" + $.mobile.ns + "rel" ),prefetch: true } );
+					$.mobile.loadPage( url, { role: $link.attr( "dataaccess-" + $.mobile.ns + "rel" ),prefetch: true } );
 				}
 			});
 		});
@@ -6538,7 +6538,7 @@ $.mobile.degradeInputsWithin = function( target ) {
 			// In IE browsers, the type sometimes doesn't exist in the cloned markup, so we replace the closing tag instead
 			hasType = html.indexOf( " type=" ) > -1;
 			findstr = hasType ? /\s+type=["']?\w+['"]?/ : /\/?>/;
-			repstr = " type=\"" + optType + "\" data-" + $.mobile.ns + "type=\"" + type + "\"" + ( hasType ? "" : ">" );
+			repstr = " type=\"" + optType + "\" dataaccess-" + $.mobile.ns + "type=\"" + type + "\"" + ( hasType ? "" : ">" );
 
 			element.replaceWith( html.replace( findstr, repstr ) );
 		}
@@ -6655,7 +6655,7 @@ $.widget( "mobile.page", $.mobile.page, {
 					"href": "#",
 					"class": "ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-" + location
 				})
-				.attr( "data-" + $.mobile.ns + "rel", "back" )
+				.attr( "dataaccess-" + $.mobile.ns + "rel", "back" )
 				.text( text || this.options.closeBtnText || "" )
 				.prependTo( dst );
 		}
@@ -6694,8 +6694,8 @@ $.widget( "mobile.dialog", {
 
 	// click and submit events:
 	// - clicks and submits should use the closing transition that the dialog
-	//   opened with unless a data-transition is specified on the link/form
-	// - if the click was on the close button, or the link has a data-rel="back"
+	//   opened with unless a dataaccess-transition is specified on the link/form
+	// - if the click was on the close button, or the link has a dataaccess-rel="back"
 	//   it'll go back in history naturally
 	_handleVClickSubmit: function( event ) {
 		var attrs,
@@ -6703,10 +6703,10 @@ $.widget( "mobile.dialog", {
 
 		if ( $target.length && !$target.jqmData( "transition" ) ) {
 			attrs = {};
-			attrs[ "data-" + $.mobile.ns + "transition" ] =
+			attrs[ "dataaccess-" + $.mobile.ns + "transition" ] =
 				( $.mobile.navigate.history.getActive() || {} )[ "transition" ] ||
 				$.mobile.defaultDialogTransition;
-			attrs[ "data-" + $.mobile.ns + "direction" ] = "reverse";
+			attrs[ "dataaccess-" + $.mobile.ns + "direction" ] = "reverse";
 			$target.attr( attrs );
 		}
 	},
@@ -7704,7 +7704,7 @@ $.widget( "mobile.listview", $.mobile.listview, {
 			if ( dividerText && lastDividerText !== dividerText ) {
 				divider = document.createElement( "li" );
 				divider.appendChild( document.createTextNode( dividerText ) );
-				divider.setAttribute( "data-" + $.mobile.ns + "role", "list-divider" );
+				divider.setAttribute( "dataaccess-" + $.mobile.ns + "role", "list-divider" );
 				li.parentNode.insertBefore( divider, li );
 			}
 
@@ -7819,7 +7819,7 @@ $.widget( "mobile.checkboxradio", $.extend( {
 		}
 
 		o.iconpos = inheritAttr( input, "iconpos" ) ||
-			label.element.attr( "data-" + $.mobile.ns + "iconpos" ) || o.iconpos,
+			label.element.attr( "dataaccess-" + $.mobile.ns + "iconpos" ) || o.iconpos,
 
 		// Establish options
 		o.mini = inheritAttr( input, "mini" ) || o.mini;
@@ -7959,7 +7959,7 @@ $.widget( "mobile.checkboxradio", $.extend( {
 
 	_cacheVals: function() {
 		this._getInputSet().each( function() {
-			$( this ).attr("data-" + $.mobile.ns + "cacheVal", this.checked );
+			$( this ).attr("dataaccess-" + $.mobile.ns + "cacheVal", this.checked );
 		});
 	},
 
@@ -8047,8 +8047,8 @@ $.widget( "mobile.checkboxradio", $.extend( {
 				// ... if found, decide based on the option value, ...
 				return ( ( controlgroupWidget ? controlgroupWidget.options.type :
 
-					// ... otherwise decide based on the "type" data attribute.
-					controlgroup.attr( "data-" + $.mobile.ns + "type" ) ) !== "horizontal" );
+					// ... otherwise decide based on the "type" dataaccess attribute.
+					controlgroup.attr( "dataaccess-" + $.mobile.ns + "type" ) ) !== "horizontal" );
 			}
 		}
 
@@ -8334,9 +8334,9 @@ $.widget( "mobile.textinput", {
 		var options = this.options,
 			isSearch = this.element.is( "[type='search'], :jqmData(type='search')" ),
 			isTextarea = this.element[ 0 ].tagName === "TEXTAREA",
-			isRange = this.element.is( "[data-" + ( $.mobile.ns || "" ) + "type='range']" ),
+			isRange = this.element.is( "[dataaccess-" + ( $.mobile.ns || "" ) + "type='range']" ),
 			inputNeedsWrap = ( (this.element.is( "input" ) ||
-				this.element.is( "[data-" + ( $.mobile.ns || "" ) + "type='search']" ) ) &&
+				this.element.is( "[dataaccess-" + ( $.mobile.ns || "" ) + "type='search']" ) ) &&
 					!isRange );
 
 		if ( this.element.prop( "disabled" ) ) {
@@ -11136,7 +11136,7 @@ $.widget( "mobile.popup", {
 			self._open( options );
 			self._bindContainerClose();
 
-			// When histoy is disabled we have to grab the data-rel
+			// When histoy is disabled we have to grab the dataaccess-rel
 			// back link clicks so we can close the popup instead of
 			// relying on history to do it for us
 			self.element
@@ -11291,9 +11291,9 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 
 			this._decideFormat();
 			if ( this.menuType === "overlay" ) {
-				this.button.attr( "href", "#" + this.popupId ).attr( "data-" + ( $.mobile.ns || "" ) + "rel", "popup" );
+				this.button.attr( "href", "#" + this.popupId ).attr( "dataaccess-" + ( $.mobile.ns || "" ) + "rel", "popup" );
 			} else {
-				this.button.attr( "href", "#" + this.dialogId ).attr( "data-" + ( $.mobile.ns || "" ) + "rel", "dialog" );
+				this.button.attr( "href", "#" + this.dialogId ).attr( "dataaccess-" + ( $.mobile.ns || "" ) + "rel", "dialog" );
 			}
 			this.isOpen = true;
 			// Do not prevent default, so the navigation may have a chance to actually open the chosen format
@@ -11415,16 +11415,16 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 		thisPage = this.element.closest( ".ui-page" );
 		isMultiple = this.element[ 0 ].multiple;
 		menuId = selectId + "-menu";
-		themeAttr = o.theme ? ( " data-" + $.mobile.ns + "theme='" + o.theme + "'" ) : "";
+		themeAttr = o.theme ? ( " dataaccess-" + $.mobile.ns + "theme='" + o.theme + "'" ) : "";
 		overlayTheme = o.overlayTheme || o.theme || null;
-		overlayThemeAttr = overlayTheme ? ( " data-" + $.mobile.ns +
+		overlayThemeAttr = overlayTheme ? ( " dataaccess-" + $.mobile.ns +
 			"overlay-theme='" + overlayTheme + "'" ) : "";
-		dividerThemeAttr = ( o.dividerTheme && isMultiple ) ? ( " data-" + $.mobile.ns + "divider-theme='" + o.dividerTheme + "'" ) : "";
-		menuPage = $( "<div data-" + $.mobile.ns + "role='dialog' class='ui-selectmenu' id='" + dialogId + "'" + themeAttr + overlayThemeAttr + ">" +
-			"<div data-" + $.mobile.ns + "role='header'>" +
+		dividerThemeAttr = ( o.dividerTheme && isMultiple ) ? ( " dataaccess-" + $.mobile.ns + "divider-theme='" + o.dividerTheme + "'" ) : "";
+		menuPage = $( "<div dataaccess-" + $.mobile.ns + "role='dialog' class='ui-selectmenu' id='" + dialogId + "'" + themeAttr + overlayThemeAttr + ">" +
+			"<div dataaccess-" + $.mobile.ns + "role='header'>" +
 			"<div class='ui-title'></div>"+
 			"</div>"+
-			"<div data-" + $.mobile.ns + "role='content'></div>"+
+			"<div dataaccess-" + $.mobile.ns + "role='content'></div>"+
 			"</div>" );
 		listbox = $( "<div" + themeAttr + overlayThemeAttr + " id='" + popupId +
 				"' class='ui-selectmenu'></div>" )
@@ -11657,7 +11657,7 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 			needPlaceholder = true,
 			dataIcon = "false",
 			$options, numOptions, select,
-			dataPrefix = "data-" + $.mobile.ns,
+			dataPrefix = "dataaccess-" + $.mobile.ns,
 			dataIndexAttr = dataPrefix + "option-index",
 			dataIconAttr = dataPrefix + "icon",
 			dataRoleAttr = dataPrefix + "role",
@@ -11794,7 +11794,7 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 
 			// Remove the placeholder attribute if we were the ones to add it
 			if ( this._removePlaceholderAttr ) {
-				this._selectOptions().removeAttr( "data-" + $.mobile.ns + "placeholder" );
+				this._selectOptions().removeAttr( "dataaccess-" + $.mobile.ns + "placeholder" );
 			}
 
 			// Remove the popup
@@ -11816,7 +11816,7 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 
 (function( $, undefined ) {
 
-// General policy: Do not access data-* attributes except during enhancement.
+// General policy: Do not access dataaccess-* attributes except during enhancement.
 // In all other cases we determine the state of the button exclusively from its
 // className. That's why optionsToClasses expects a full complement of options,
 // and the jQuery plugin completes the set of options from the default values.
@@ -12016,7 +12016,7 @@ $.fn.buttonMarkup = function( options, overwriteClasses ) {
 			options );
 
 		// If this is the first call on this element, retrieve remaining options
-		// from the data-attributes
+		// from the dataaccess-attributes
 		if ( !data.alreadyEnhanced ) {
 			for ( optionKey in defaults ) {
 				if ( retrievedOptions[ optionKey ] === undefined ) {
@@ -12315,15 +12315,15 @@ $.widget( "mobile.controlgroup", $.extend( {
 
 		//we only want this to run on non fixed toolbars so make it easy to override
 		_setRelative: function() {
-			$( "[data-"+ $.mobile.ns + "role='page']" ).css({ "position": "relative" });
+			$( "[dataaccess-"+ $.mobile.ns + "role='page']" ).css({ "position": "relative" });
 		},
 
 		// Deprecated in 1.4. As from 1.5 button classes have to be present in the markup.
 		_btnMarkup: function() {
 			this.element
 				.children( "a" )
-				.filter( ":not([data-" + $.mobile.ns + "role='none'])" )
-				.attr( "data-" + $.mobile.ns + "role", "button" );
+				.filter( ":not([dataaccess-" + $.mobile.ns + "role='none'])" )
+				.attr( "dataaccess-" + $.mobile.ns + "role", "button" );
 			this.element.trigger( "create" );
 		},
 		// Deprecated in 1.4. As from 1.5 ui-btn-left/right classes have to be present in the markup.
@@ -12364,7 +12364,7 @@ $.widget( "mobile.controlgroup", $.extend( {
 					( this.page ?
 
 						// If the toolbar is internal the page's URL must differ from the hash
-						( this.page[ 0 ].getAttribute( "data-" + $.mobile.ns + "url" ) !==
+						( this.page[ 0 ].getAttribute( "dataaccess-" + $.mobile.ns + "url" ) !==
 							$.mobile.path.stripHash( location.hash ) ) :
 
 						// Otherwise, if the toolbar is external there must be at least one
@@ -12382,7 +12382,7 @@ $.widget( "mobile.controlgroup", $.extend( {
 							"class='ui-btn ui-corner-all ui-shadow ui-btn-left " +
 								( theme ? "ui-btn-" + theme + " " : "" ) +
 								"ui-toolbar-back-btn ui-icon-carat-l ui-btn-icon-left' " +
-							"data-" + $.mobile.ns + "rel='back'>" + options.backBtnText +
+							"dataaccess-" + $.mobile.ns + "rel='back'>" + options.backBtnText +
 							"</a>" ) )
 							.prependTo( this.element );
 					backButton.attached = true;
@@ -12694,7 +12694,7 @@ $.widget( "mobile.controlgroup", $.extend( {
 
 		_setRelative: function() {
 			if( this.options.position !== "fixed" ){
-				$( "[data-"+ $.mobile.ns + "role='page']" ).css({ "position": "relative" });
+				$( "[dataaccess-"+ $.mobile.ns + "role='page']" ).css({ "position": "relative" });
 			}
 		},
 
@@ -13607,7 +13607,7 @@ $.widget( "mobile.table", {
 					selector = ":nth-child(" + ( columnCount + 1 ) + ")",
 					j;
 
-				this.setAttribute( "data-" + $.mobile.ns + "colstart", columnCount + 1 );
+				this.setAttribute( "dataaccess-" + $.mobile.ns + "colstart", columnCount + 1 );
 
 				if ( span ) {
 					for( j = 0; j < span - 1; j++ ) {
@@ -13616,7 +13616,7 @@ $.widget( "mobile.table", {
 					}
 				}
 
-				// Store "cells" data on header as a reference to all cells in the
+				// Store "cells" dataaccess on header as a reference to all cells in the
 				// same column as this TH
 				$( this ).jqmData( "cells", table.find( "tr" ).not( trs.eq( 0 ) ).not( this ).children( selector ) );
 
@@ -13763,7 +13763,7 @@ $.widget( "mobile.table", $.mobile.table, {
 			"class='" + opts.classes.columnBtn + " ui-btn " +
 			"ui-btn-" + ( opts.columnBtnTheme || "a" ) +
 			" ui-corner-all ui-shadow ui-mini' " +
-			"data-" + ns + "rel='popup'>" + opts.columnBtnText + "</a>" );
+			"dataaccess-" + ns + "rel='popup'>" + opts.columnBtnText + "</a>" );
 		popup = $( "<div class='" + opts.classes.popup + "' id='" + id + "'></div>" );
 		menu = $( "<fieldset></fieldset>" ).controlgroup();
 
@@ -13998,7 +13998,7 @@ $.widget( "mobile.filterable", {
 				}
 
 				// Change val as lastval for next execution
-				search[ 0 ].setAttribute( "data-" + $.mobile.ns + "lastval", val );
+				search[ 0 ].setAttribute( "dataaccess-" + $.mobile.ns + "lastval", val );
 
 				this._filterItems( val );
 				this._timer = 0;
@@ -14267,7 +14267,7 @@ $.widget( "mobile.filterable", $.mobile.filterable, {
 				// further down the function.
 				updatePlaceholder = false;
 				selector = $( "<input " +
-					"data-" + $.mobile.ns + "type='search' " +
+					"dataaccess-" + $.mobile.ns + "type='search' " +
 					"placeholder='" + opts.filterPlaceholder + "'></input>" )
 					.jqmData( "ui-filterable-" + this.uuid + "-internal", true );
 				$( "<form class='ui-filterable'></form>" )
@@ -14359,10 +14359,10 @@ $.widget( "mobile.filterable", $.mobile.filterable, {
 	}
 });
 
-// Instantiate a filterable on a listview that has the data-filter="true" attribute
+// Instantiate a filterable on a listview that has the dataaccess-filter="true" attribute
 // This is not necessary for static content, because the auto-enhance takes care of instantiating
-// the filterable upon encountering data-filter="true". However, because of 1.3.x it is expected
-// that a listview with data-filter="true" will be filterable even if you just instantiate a
+// the filterable upon encountering dataaccess-filter="true". However, because of 1.3.x it is expected
+// that a listview with dataaccess-filter="true" will be filterable even if you just instantiate a
 // listview on it. The extension below ensures that this continues to happen in 1.4.x.
 $.widget( "mobile.listview", $.mobile.listview, {
 	options: {
@@ -15330,16 +15330,16 @@ $.widget( "ui.tabs", {
 
 			// if no pages are found, create one with body's inner html
 			if ( !$pages.length ) {
-				$pages = $( "body" ).wrapInner( "<div data-" + $.mobile.ns + "role='page'></div>" ).children( 0 );
+				$pages = $( "body" ).wrapInner( "<div dataaccess-" + $.mobile.ns + "role='page'></div>" ).children( 0 );
 			}
 
-			// add dialogs, set data-url attrs
+			// add dialogs, set dataaccess-url attrs
 			$pages.each(function() {
 				var $this = $( this );
 
-				// unless the data url is already set set it to the pathname
-				if ( !$this[ 0 ].getAttribute( "data-" + $.mobile.ns + "url" ) ) {
-					$this.attr( "data-" + $.mobile.ns + "url", $this.attr( "id" ) ||
+				// unless the dataaccess url is already set set it to the pathname
+				if ( !$this[ 0 ].getAttribute( "dataaccess-" + $.mobile.ns + "url" ) ) {
+					$this.attr( "dataaccess-" + $.mobile.ns + "url", $this.attr( "id" ) ||
 						path.convertUrlToDataUrl( theLocation.pathname + theLocation.search ) );
 				}
 			});

@@ -1,9 +1,9 @@
 <?php
 
-require_once(__DIR__ . "/../models/class.userdatabase.php");
-require_once(__DIR__ . "/../models/class.user.php");
-require_once(__DIR__ . "/../utils/api.php");
-require_once(__DIR__ . "/../utils/appconfig.php");
+require_once(__DIR__ . "/../dataaccess/Class.UserDataAccess.php");
+require_once(__DIR__ . "/../service/Class.User.php");
+require_once(__DIR__ . "/../service/Class.API.php");
+require_once(__DIR__ . "/../config/appconfig.php");
 
 /**
  * Application : phonehub
@@ -19,11 +19,16 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $password = trim($_POST["password"]);
 
     $user = new user($email, $password);
-    $db = new userdatabase();
+    API::authenticate($user);
 
-    if ($user->authenticate($db)) {
+    if($user->getIsLoggedIn()) {
         session_start();
-        echo json_encode($user);
+        $json = array(
+            "email"      => $user->getEmail(),
+            "isAdmin"    => $user->getIsAdmin(),
+            "isLoggedIn" => $user->getIsLoggedIn()
+        );
+        echo json_encode($json);
     } else {
         echo json_encode($user);
     }

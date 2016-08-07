@@ -6,7 +6,7 @@
  Version     : 0.1
 */
 
-//TODO: Add custom scripts for data presentation (AJAX)
+//TODO: Add custom scripts for dataaccess presentation (AJAX)
 //TODO: Create local storage session as JSON (type, user, cartitems)
 //TODO: If User signed in, remove sign in button and replace with User name
 //TODO: If Admin signed in, remove sign in button and replace with Admin name
@@ -60,13 +60,13 @@ $(document).on("pagebeforeshow", "#admin", function() {
         type     : "GET",
         url      : "users/admin.json",
         dataType : "JSON",
-        success  : function(data) {
+        success  : function(dataaccess) {
             var email = $("#email").val();
             var pass  = $("#password").val();
 
-            if (data.email === email && data.password === pass) {
+            if (dataaccess.email === email && dataaccess.password === pass) {
                 $.mobile.changePage("#admin");
-                localStorage.setItem("adminSession", JSON.stringify(data));
+                localStorage.setItem("adminSession", JSON.stringify(dataaccess));
             } else {
                 $.mobile.changePage("#home");
                 localStorage.removeItem("adminSession");
