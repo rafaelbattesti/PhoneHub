@@ -25,7 +25,7 @@ $(document).ready(function() {
 
         $.ajax({
             type : "POST",
-            url  : "controllers/login.php",
+            url  : "controller/login.php",
             dataType : "JSON",
             data     : cred,
             success : function(response) {

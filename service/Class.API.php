@@ -9,7 +9,7 @@
  */
 
 require_once(__DIR__ . "/../config/appconfig.php");
-require_once(__DIR__ . "/../dataaccess/Class.UserDataAccess.php");
+require_once(__DIR__ . "/../database/Class.UserDatabase.php");
 require_once("Class.User.php");
 
 class API {
@@ -38,15 +38,15 @@ class API {
      */
     public static function authenticate($user) {
         try {
-            $db = new UserDataAccess();
+            $db = new UserDatabase();
             $isAuth = $db->authenticate($user->getEmail(), $user->getPassword());
             $user->setIsLoggedIn($isAuth);
             $db->disconnect();
             unset($db);
-            self::logger(DB_LOG, SUCCESS, API, __FUNCTION__);
+            self::logger(DB_LOG, DEV_SUCCESS, API_CLASS, __FUNCTION__);
         } catch (Exception $e) {
             self::setMessage(API_ERROR);
-            self::logger(DB_LOG, ERROR, API, $e->getMessage());
+            self::logger(DB_LOG, DEV_ERROR, API_CLASS, $e->getMessage());
         }
     }
 
