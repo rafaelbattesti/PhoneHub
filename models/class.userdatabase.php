@@ -20,38 +20,25 @@ class userdatabase extends database {
 
     /**
      * @param $email
-     * @param $json
-     * @return array|null|string
+     * @return array|null
      */
-    public function getUserByEmail($email, $json) {
+    public function getUserByEmail($email) {
         $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
         $result = mysqli_query($this->conn, $sql);
         $user = mysqli_fetch_assoc($result);
-
-        if ($json) {
-            return json_encode($user);
-        } else {
-            return $user;
-        }
-
+        return $user;
     }
 
     /**
      * @return string JSON of the users
      */
-    public function getAllUsers($json) {
+    public function getAllUsers() {
         $sql = "SELECT * FROM users";
         $result = mysqli_query($this->conn, $sql);
         $rows = array();
-
         while ($row = mysqli_fetch_assoc($result)) {
             $rows[] = $row;
         }
-
-        if ($json) {
-            return json_encode($rows);
-        } else {
-            return $rows;
-        }
+        return $rows;
     }
 }

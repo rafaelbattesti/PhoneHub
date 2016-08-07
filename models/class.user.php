@@ -8,6 +8,8 @@
  * Version     : 0.1
  */
 
+require_once(__DIR__ . "/../utils/appconfig.php");
+
 /**
  * Class user : represents a model of the user
  */
@@ -38,8 +40,8 @@ class user {
      * @param $p string
      */
     public function __construct ($e, $p) {
-        $this->email = $e;
-        $this->password = md5($p);
+        $this->setEmail($e);
+        $this->setPassword($p);
     }
 
     /**
@@ -50,10 +52,38 @@ class user {
     }
 
     /**
+     * @param $email string
+     */
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    /**
      * @return string MD5 password
      */
     public function getPassword() {
         return $this->password;
+    }
+
+    /**
+     * @param $password string
+     */
+    public function setPassword($password) {
+        $this->password = md5($password);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsAdmin() {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param $isAdmin mixed
+     */
+    public function setIsAdmin($isAdmin) {
+        $this->isAdmin = $isAdmin;
     }
 
     /**
@@ -71,15 +101,20 @@ class user {
     }
 
     /**
-     * @param $db database object
-     * @return bool authenticated
+     * @param $db userdatabase
+     * @return bool
      */
     public function authenticate($db) {
-        $json = false;
-        $result = $db->getUserByEmail($this->email, $json);
+        $result = $db->getUserByEmail($this->email);
 
-        if(!empty($result)) {
-            return true;
+        if($result) {
+            if($this->getPassword() == $result["password"]) {
+                $this->setIsLoggedIn();
+                $this->setIsAdmin($result["admin"]);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

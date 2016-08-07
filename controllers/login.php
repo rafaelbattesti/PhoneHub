@@ -17,15 +17,18 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
-
     $user = new user($email, $password);
     $db = new userdatabase();
 
     if ($user->authenticate($db)) {
-        session_start();
-        echo json_encode($user);
+        $json = array(
+            "email"      => $user->getEmail(),
+            "isAdmin"    => $user->getIsAdmin(),
+            "isLoggedIn" => $user->getIsLoggedIn()
+        );
+        echo json_encode($json);
     } else {
-        echo json_encode($user);
+        echo json_encode(new stdClass());
     }
 }
 
