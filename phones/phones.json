@@ -8,7 +8,8 @@
     "deal": true,
     "qoh":20,
     "category": "tablet",
-    "rating" : 4
+    "rating": 4,
+    "price": 320.00
   },
   {
     "age": 1,
@@ -19,7 +20,8 @@
     "deal": true,
     "qoh":35,
     "category": "tablet",
-    "rating" : 4
+    "rating": 4,
+    "price": 110.00
   },
   {
     "age": 2,
@@ -31,7 +33,8 @@
     "deal": true,
     "qoh":10,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 235.00
   },
   {
     "age": 3,
@@ -42,7 +45,8 @@
     "deal": true,
     "qoh":8,
     "category": "tablet",
-    "rating" : 4
+    "rating": 4,
+    "price": 120.00
   },
   {
     "age": 4,
@@ -54,7 +58,8 @@
     "deal": false,
     "qoh":0,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 130.00
   },
   {
     "age": 5,
@@ -66,7 +71,8 @@
     "deal": true,
     "qoh":0,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 520.00
   },
   {
     "age": 6,
@@ -78,7 +84,8 @@
     "deal": true,
     "qoh":3,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 220.00
   },
   {
     "age": 7,
@@ -90,7 +97,8 @@
     "deal": false,
     "qoh":21,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 375.00
   },
   {
     "age": 8,
@@ -101,7 +109,8 @@
     "deal": true,
     "qoh":17,
     "category": "tablet",
-    "rating" : 4
+    "rating": 4,
+    "price": 248.00
   },
   {
     "age": 9,
@@ -113,7 +122,8 @@
     "deal": true,
     "qoh":10,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 675.00
   },
   {
     "age": 10,
@@ -125,7 +135,8 @@
     "deal": false,
     "qoh":0,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 200.00
   },
   {
     "age": 11,
@@ -137,7 +148,8 @@
     "deal": true,
     "qoh":12,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 310.00
   },
   {
     "age": 12,
@@ -149,7 +161,8 @@
     "deal": true,
     "qoh":40,
     "category": "phones",
-    "rating" : 4
+    "rating": 4,
+    "price": 340.00
   },
   {
     "age": 13,
@@ -161,7 +174,8 @@
     "deal": false,
     "qoh":4,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 290.00
   },
   {
     "age": 14,
@@ -173,7 +187,8 @@
     "deal": false,
     "qoh":5,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 630.00
   },
   {
     "age": 15,
@@ -185,7 +200,8 @@
     "deal": false,
     "qoh":63,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 470.00
   },
   {
     "age": 16,
@@ -197,7 +213,8 @@
     "deal": false,
     "qoh":16,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 270.00
   },
   {
     "age": 17,
@@ -208,7 +225,8 @@
     "deal": false,
     "qoh":23,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 520.00
   },
   {
     "age": 18,
@@ -219,7 +237,8 @@
     "deal": false,
     "qoh":43,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 230.00
   },
   {
     "age": 19,
@@ -230,6 +249,7 @@
     "deal": true,
     "qoh":23,
     "category": "phone",
-    "rating" : 4
+    "rating": 4,
+    "price": 110.00
   }
 ]
