@@ -5,4 +5,7 @@ Since       : 2016-07-28
 Version     : 0.1
 */
 
-/* TODO: Add custom styles
+footer p {
+    font-size: x-small;
+    text-align: center;
+}
