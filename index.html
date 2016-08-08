@@ -23,20 +23,22 @@
     <!-- Landing Page -->
     <section id="home" data-role="page">
         <header id="homeheader" data-role="header" data-position="fixed">
+            <a id="homehomebtn" href="#home" data-role="button">Home</a>
             <h1>PhoneHub</h1>
             <a id="homesigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
-        <section id="homenav" data-role="navbar">
+        <section id="homenav" data-role="navbar" data-position="fixed">
             <ul>
                 <li><a href="#categories">Categories</a></li>
                 <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
             </ul>
         </section>
         <section id="homecontent" role="main" class="ui-content">
             <ul data-role="listview" data-inset="true" id="homeProdList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
             </ul>
         </section>
-        <footer id="homefooter" data-role="footer">
+        <footer id="homefooter" data-role="footer" data-position="fixed">
 
         </footer>
     </section>
@@ -47,15 +49,19 @@
             <a id="adminhomebtn" href="#home" data-role="button">Home</a>
             <h1>Admin Area</h1>
         </header>
-        <section id="adminnav" data-role="navbar">
-
+        <section id="adminnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
         </section>
         <section id="admincontent" role="main" class="ui-content">
 
         </section>
-        <section id="adminfooter" data-role="footer">
+        <footer id="adminfooter" data-role="footer">
 
-        </section>
+        </footer>
     </section>
 
     <!-- Deals page -->
@@ -65,13 +71,20 @@
             <h1>Deals</h1>
             <a id="dealssigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
+        <section id="dealsnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </section>
         <section id="dealscontent" role="main" class="ui-content">
             <ul data-role="listview" data-inset="true" id="dealsProdList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
             </ul>
         </section>
-        <section id="dealsfooter" data-role="footer">
+        <footer id="dealsfooter" data-role="footer" data-position="fixed">
 
-        </section>
+        </footer>
     </section>
 
     <!-- Categories page -->
@@ -81,12 +94,78 @@
             <h1>Categories</h1>
             <a id="categoriessigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
+        <section id="categoriesnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </section>
         <section id="categoriescontent" role="main" class="ui-content">
-
+            <ul data-role="listview" data-inset="true" id="categoriesList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                <li data-inset="true" class="ui-li-has-thumb ui-first-child">
+                    <a id="phonebtn" href="#phone" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h2 class="ui-li-heading">Smartphones</h2>
+                        <p class="ui-li-desc">The top mobile experience</p>
+                    </a>
+                </li>
+                <li data-inset="true" class="ui-li-has-thumb ui-first-child">
+                    <a id="tabletbtn" href="#tablet" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h2 class="ui-li-heading">Tablets</h2>
+                        <p class="ui-li-desc">Mobility with more resources</p>
+                    </a>
+                </li>
+            </ul>
         </section>
-        <section id="categoriesfooter" data-role="footer">
+        <footer id="categoriesfooter" data-role="footer" data-position="fixed">
 
+        </footer>
+    </section>
+
+    <!-- Tablet Page -->
+    <section id="tablet" data-role="page">
+        <header id="tabletheader" data-role="header" data-position="fixed">
+            <a id="tablethomebtn" href="#home" data-role="button">Home</a>
+            <h1>Tablets</h1>
+            <a id="tabletsigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
+        </header>
+        <section id="tabletnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
         </section>
+        <section id="tabletcontent" role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" id="tabletProdList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+            </ul>
+        </section>
+        <footer id="tabletfooter" data-role="footer" data-position="fixed">
+
+        </footer>
+    </section>
+
+    <!-- Phone Page -->
+    <section id="phone" data-role="page">
+        <header id="phoneheader" data-role="header" data-position="fixed">
+            <a id="phonehomebtn" href="#home" data-role="button">Home</a>
+            <h1>Smartphones</h1>
+            <a id="phonesigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
+        </header>
+        <section id="phonenav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </section>
+        <section id="phonecontent" role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" id="phoneProdList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+            </ul>
+        </section>
+        <footer id="phonefooter" data-role="footer" data-position="fixed">
+
+        </footer>
     </section>
 
     <!-- Product Page -->
@@ -96,13 +175,18 @@
             <h1>Product</h1>
             <a id="productsigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
-        <section id="productnav" data-role="navbar">
-
+        <section id="productnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
         </section>
         <section id="productcontent" role="main" class="ui-content">
-
+            <a id="backbtn" data-rel="back" data-role="button">Back</a>
+            <a id="addtocartbtn" href="#signin" data-role="button">Add To Cart</a>
         </section>
-        <footer id="productfooter" data-role="footer">
+        <footer id="productfooter" data-role="footer" data-position="fixed">
 
         </footer>
     </section>
@@ -114,13 +198,17 @@
             <h1>Cart</h1>
             <a id="cartsigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
-        <section id="cartnav" data-role="navbar">
-
+        <section id="cartnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
         </section>
         <section id="cartcontent" role="main" class="ui-content">
 
         </section>
-        <footer id="cartfooter" data-role="footer">
+        <footer id="cartfooter" data-role="footer" data-position="fixed">
 
         </footer>
     </section>
@@ -128,29 +216,24 @@
     <!-- Checkout page -->
     <section id="checkout" data-role="page">
         <header id="checkoutheader" data-role="header" data-position="fixed">
-
+            <a id="checkouthomebtn" href="#home" data-role="button">Home</a>
+            <h1>Cart</h1>
+            <a id="checkoutsigninbtn" href="#signin" data-role="button" data-rel="dialog">Admin</a>
         </header>
+        <section id="checkoutnav" data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </section>
         <section id="checkoutcontent" role="main" class="ui-content">
 
         </section>
-        <footer id="checkoutfooter" data-role="footer">
+        <footer id="checkoutfooter" data-role="footer" data-position="fixed">
 
         </footer>
     </section>
-
-    <!-- Add to cart - Confirmation Pop-up -->
-    <section id="confirmation" data-role="page">
-        <header id="confirmationheader" data-role="header">
-
-        </header>
-        <section id="confirmationcontent" role="main" class="ui-content">
-
-        </section>
-        <footer id="confirmationfooter" data-role="footer">
-
-        </footer>
-    </section>
-
 
     <!-- Sign in popup -->
     <section id="signin" data-role="page">
