@@ -18,12 +18,21 @@ For the sake of educational purposes, no scafolding has been used.
 * The purpose of using those resources is to focus on the development of the SPA itself instead of the content of the application.
 
 ### What technology does it use? ###
-* Front-end: AJAX, JQuery and JQuery Mobile.
-* Back-end: Still not implemented
+* Front-end:
+    * JQuery 1.8.3
+    * JQuery Mobile 1.4.5
+    * AJAX requests JSON transfer
+    * LocalStorage for Shopping Cart, Product update and Session (implement a token based authentication in the future)
+
+* Back-end: Object Oriented PHP
+    * Base Database class with UserDatabase class inheriting
+    * User class
+    * Api for logging activity in the very beginning (implement a request API is the final objective)
+    * Mysql database for users (implement database for products with the API)
 
 ### How do I get set up? ###
 
-* This is a front-end project, thus requiring a simple http server to serve html and JSON files.
+* This project requires a LAMP server with PHP 5/7
 * All the dependencies have been added to version control (not a good practice, I know!) but for the sake of having a complete source of knowledge in the remote repository.
 * No tests have been deployed for this application (so far...)
 
