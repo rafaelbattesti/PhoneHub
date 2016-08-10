@@ -1,12 +1,10 @@
 # PhoneHub #
 
-This is a Single Page Application (SPA) mobile ready e-commerce prototype.
-This project was created as the final project for Sheridan College's Mobile Web-based Application Development.
-
 For the sake of educational purposes, no scafolding has been used.
 
 ### What is this repository for? ###
-
+This is a Single Page Application (SPA) mobile ready e-commerce prototype.
+This project was created as the final project for Sheridan College's Mobile Web-based Application Development.
 * PhoneHub SPA
 * 1.0
 * [JQuery Mobile](https://jquerymobile.com/)
