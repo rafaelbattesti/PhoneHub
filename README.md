@@ -8,7 +8,7 @@ For the sake of educational purposes, no scafolding has been used.
 ### What is this repository for? ###
 
 * PhoneHub SPA
-* 0.1
+* 1.0
 * [JQuery Mobile](https://jquerymobile.com/)
 * [LinkedIn Profile](https://ca.linkedin.com/in/rafaelbattesti)
 
