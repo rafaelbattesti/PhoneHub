@@ -62,14 +62,35 @@
         <section id="admincontent" role="main" class="ui-content">
             <h3>Product Sales</h3>
             <section id="salesdata">
+                <table data-role="table" data-mode="columntoggle" id="tablesales" class="ui-body-d table-stripe">
+                    <thead>
+                    <tr class="ui-bar-d">
+                        <th>Product</th>
+                        <th data-priority="critical">QOH</th>
+                        <th data-priority="critical">Sales</th>
+                    </tr>
+                    </thead>
+                    <tbody id="salestable">
 
+                    </tbody>
+                </table>
             </section>
             <canvas id="salescanvas">
 
             </canvas>
             <h3>Product Ratings</h3>
             <section id="ratingdata">
+                <table data-role="table" data-mode="columntoggle" id="tablerating" class="ui-body-d table-stripe">
+                    <thead>
+                    <tr class="ui-bar-d">
+                        <th>Product</th>
+                        <th data-priority="critical">Rating</th>
+                    </tr>
+                    </thead>
+                    <tbody id="ratingtable">
 
+                    </tbody>
+                </table>
             </section>
             <canvas id="ratingcanvas">
 
