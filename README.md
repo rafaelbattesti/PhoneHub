@@ -19,9 +19,10 @@ For the sake of educational purposes, no scafolding has been used.
 
 ### What technology does it use? ###
 * Front-end:
-    * JQuery 1.8.3
-    * JQuery Mobile 1.4.5
-    * AJAX requests JSON transfer
+    * JQuery v1.8.3
+    * JQuery Mobile v1.4.5
+    * AJAX requests for JSON transfer
+    * Chart.js for chart plotting in admin area
     * LocalStorage for Shopping Cart, Product update and Session (implement a token based authentication in the future)
 
 * Back-end: Object Oriented PHP
