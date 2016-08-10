@@ -10,7 +10,7 @@ footer p {
     text-align: center;
 }
 
-.prod-img {
+.prod-img, canvas {
     width: 100%;
     height: auto;
 }
